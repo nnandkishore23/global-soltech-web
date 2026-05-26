@@ -10,7 +10,7 @@
   <div class="top-bar">
     <div class="top-bar-container">
       <div class="top-bar-left">
-        <span>📞 Phone: <a href="tel:+917738896005">+91 7738896005</a></span>
+        <span>📞 <a href="tel:+917738896005">+91 7738896005</a></span>
       </div>
       <div class="top-bar-right">
         <span><a href="mailto:info@globalsoltech.in">info@globalsoltech.in</a></span>
@@ -23,7 +23,10 @@
       <div class="logo">
         <img src="assets/logo.svg" alt="Global SolTech Logo">
       </div>
-      <nav>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="mainNav">
         <a href="index.html" class="active">Home</a>
         <div class="nav-dropdown">
           <a href="about.html">About Us</a>
@@ -35,6 +38,7 @@
       </nav>
     </div>
   </header>
+  <div class="mobile-nav-overlay" id="navOverlay"></div>
 
   <section class="hero">
     <img src="assets/banner.svg" alt="Solar Banner" class="banner-image" id="bannerImage1">
@@ -61,28 +65,32 @@
     </div>
   </section>
 
-  <!-- <section class="hero hero-secondary">
-    <img src="assets/page-2.svg" alt="page-2" class="banner-image" id="bannerImage2">
-  </section> -->
-
-  <script>
-    const bannerImage = document.getElementById('bannerImage1');
-    // const bannerImage2 = document.getElementById('bannerImage2');
-    const heroContent = document.getElementById('heroContent');
-    
-    // Show content when image loads
-    bannerImage.addEventListener('load', function() {
-      heroContent.classList.add('visible');
-    });
-    
-    // Fallback: show after 2 seconds if image doesn't trigger load
-    setTimeout(function() {
-      heroContent.classList.add('visible');
-    }, 2000);
-  </script>
-
   <footer>
     <p>© 2026 Global SolTech</p>
   </footer>
+
+  <script>
+    // Banner fade-in
+    const bannerImage = document.getElementById('bannerImage1');
+    const heroContent = document.getElementById('heroContent');
+    bannerImage.addEventListener('load', () => heroContent.classList.add('visible'));
+    setTimeout(() => heroContent.classList.add('visible'), 2000);
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mainNav = document.getElementById('mainNav');
+    const navOverlay = document.getElementById('navOverlay');
+
+    function toggleNav(open) {
+      hamburger.classList.toggle('open', open);
+      mainNav.classList.toggle('open', open);
+      navOverlay.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    hamburger.addEventListener('click', () => toggleNav(!mainNav.classList.contains('open')));
+    navOverlay.addEventListener('click', () => toggleNav(false));
+    mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleNav(false)));
+  </script>
 </body>
 </html>
