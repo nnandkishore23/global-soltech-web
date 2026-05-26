@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global SolTech - Sustainable Energy For All</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="top-bar">
+    <div class="top-bar-container">
+      <div class="top-bar-left">
+        <span>📞 Phone: <a href="tel:+917738896005">+91 7738896005</a></span>
+      </div>
+      <div class="top-bar-right">
+        <span>📧 <a href="mailto:info@globalsoltech.in">info@globalsoltech.in</a></span>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="assets/logo.svg" alt="Global SolTech Logo">
+      </div>
+      <nav>
+        <a href="index.html" class="active">Home</a>
+        <div class="nav-dropdown">
+          <a href="about.html">About Us</a>
+          <div class="dropdown-menu">
+            <a href="about.html#our-team">Our Team</a>
+          </div>
+        </div>
+        <a href="vision.html">Vision</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <img src="assets/banner.svg" alt="Solar Banner" class="banner-image" id="bannerImage1">
+    <div class="hero-content" id="heroContent">
+      <h1>Sustainable Energy For All</h1>
+      <p>Empowering businesses and homes with sustainable solar solutions!</p>
+      <div class="services-container">
+        <div class="service-card">
+          <div class="service-icon">☀️</div>
+          <h3>Solar Panels</h3>
+          <p>High-efficiency solar panels and inverters for optimal energy conversion</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💡</div>
+          <h3>Energy Efficient Consulting</h3>
+          <p>Expert guidance to optimize your energy consumption</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">⚡</div>
+          <h3>Smart Solar Inverters</h3>
+          <p>Advanced inverters for efficient energy conversion and management</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="hero hero-secondary">
+    <img src="assets/page-2.svg" alt="page-2" class="banner-image" id="bannerImage2">
+  </section> -->
+
+  <script>
+    const bannerImage = document.getElementById('bannerImage1');
+    // const bannerImage2 = document.getElementById('bannerImage2');
+    const heroContent = document.getElementById('heroContent');
+    
+    // Show content when image loads
+    bannerImage.addEventListener('load', function() {
+      heroContent.classList.add('visible');
+    });
+    
+    // Fallback: show after 2 seconds if image doesn't trigger load
+    setTimeout(function() {
+      heroContent.classList.add('visible');
+    }, 2000);
+  </script>
+
+  <footer>
+    <p>© 2026 Global SolTech</p>
+  </footer>
+</body>
+</html>
